@@ -1,0 +1,181 @@
+
+<div class="content" th:fragment="body">
+    <div class="page-inner">
+        <div class="page-header">
+            <h4 class="page-title">Category Information</h4>
+            <ul class="breadcrumbs">
+                <li class="nav-home">
+                    <a href="#">
+                        <i class="flaticon-home"></i>
+                    </a>
+                </li>
+                <li class="separator">
+                    <i class="flaticon-right-arrow"></i>
+                </li>
+                <li class="nav-item">
+                    <a href="#">Category</a>
+                </li>
+                <li class="separator">
+                    <i class="flaticon-right-arrow"></i>
+                </li>
+                <li class="nav-item">
+                    <a href="#">Information</a>
+                </li>
+            </ul>
+        </div>
+
+        <div class="row" style="display: none" id="add-category-form">
+            <div class="col-md-12">
+                <div class="card">
+                    <div class="card-header">
+                        <div class="d-flex align-items-center">
+                            <h4 class="card-title" id="form-title">Add Category</h4>
+                            <button id="hide-category-form"
+                                    class="btn btn-primary btn-round ml-auto">
+                                <i class="fa fa-minus pr-1"></i>
+                                Hide
+                            </button>
+                        </div>
+                    </div>
+                    <div class="card-body">
+                        <form id="category-form" action="" method="post" enctype="multipart/form-data">
+                            <div class="row">
+                                <div class="col-sm-12 col-md-6 col-lg-4 form-group inputError" id="nameErrorDiv">
+                                    <input type="number" id="categoryId" name="id" style="display: none" value="0" class="form-control">
+                                    <label for="name">Name</label>
+                                    <input type="text" id="name" placeholder="Name..." name="name" class="form-control">
+                                    <small id="nameError" class="errors"></small>
+                                </div>
+                                <div class="col-sm-12 col-md-6 col-lg-8 form-group">
+                                    <label for="image">Select Image</label>
+                                    <input type="file" class="form-control-file py-2" id="image" name="image">
+                                </div>
+                                <div class="col-12 form-group inputError" id="descriptionErrorDiv">
+                                    <label for="description">Description</label>
+                                    <textarea id="description" placeholder="Description..." name="description" class="form-control"></textarea>
+                                    <small id="descriptionError" class="errors"></small>
+                                </div>
+                            </div>
+                            <div class="pull-right">
+                                <button type="button" class="btn btn-info" onclick="clearForm('category-form')">Clear</button>
+                                <button class="btn btn-success" id="category-form-save-btn">Save</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-md-12">
+                <div class="card">
+                    <div class="card-header">
+                        <div class="d-flex align-items-center">
+                            <h4 class="card-title">Active Category List</h4>
+                            <button id="show-category-form"
+                                    class="btn btn-primary btn-round ml-auto">
+                                <i class="fa fa-plus pr-1"></i>
+                                Add Category
+                            </button>
+                        </div>
+                    </div>
+                    <div class="card-body">
+                        <div class="table-responsive">
+                            <table id="active-category-table" style="cursor: pointer"
+                                   class="display table table-head-bg-primary table-striped table-hover"
+                                   cellspacing="0" width="100%">
+                                <thead>
+                                <tr>
+                                    <th scope="col">Id</th>
+                                    <th scope="col">Name</th>
+                                    <th scope="col">Created By</th>
+                                    <th scope="col">Created At</th>
+                                    <th scope="col">Updated By</th>
+                                    <th scope="col">Updated At</th>
+                                    <th scope="col">Action</th>
+                                </tr>
+                                </thead>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12">
+                <div class="card">
+                    <div class="card-header">
+                        <div class="d-flex align-items-center">
+                            <h4 class="card-title">All Category List</h4>
+                        </div>
+                    </div>
+                    <div class="card-body">
+                        <div class="table-responsive">
+                            <table id="all-category-table" style="cursor: pointer"
+                                   class="display table table-head-bg-primary table-striped table-hover"
+                                   cellspacing="0" width="100%">
+                                <thead>
+                                <tr>
+                                    <th scope="col">Id</th>
+                                    <th scope="col">Name</th>
+                                    <th scope="col">Created By</th>
+                                    <th scope="col">Created At</th>
+                                    <th scope="col">Updated By</th>
+                                    <th scope="col">Updated At</th>
+                                    <th scope="col">Action</th>
+                                </tr>
+                                </thead>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal -->
+    <div class="modal fade" id="categoryModal" tabindex="-1" role="dialog" aria-labelledby="categoryModalTitle" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
+            <div class="modal-content bg-dark-gradient">
+                <div class="modal-header">
+                    <h2 class="modal-title" id="categoryModalLongTitle">Category Details</h2>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <div class="row">
+                        <div class="col-12 col-sm-6 col-md-4 col-lg-3 col-xl-2">
+                            <strong>Name</strong>
+                            <p id="categoryModalName"></p>
+                        </div>
+                        <div class="col-12 col-sm-6 col-md-4 col-lg-3 col-xl-2">
+                            <strong>Created By</strong>
+                            <p id="categoryModalCreatedBy"></p>
+                        </div>
+                        <div class="col-12 col-sm-6 col-md-4 col-lg-3 col-xl-3">
+                            <strong>Created At</strong>
+                            <p id="categoryModalCreatedAt"></p>
+                        </div>
+                        <div class="col-12 col-sm-6 col-md-4 col-lg-3 col-xl-2">
+                            <strong>Updated By</strong>
+                            <p id="categoryModalUpdatedBy"></p>
+                        </div>
+                        <div class="col-12 col-sm-6 col-md-4 col-lg-3 col-xl-3">
+                            <strong>Updated At</strong>
+                            <p id="categoryModalUpdatedAt"></p>
+                        </div>
+                        <div class="col-12">
+                            <strong>Description</strong>
+                            <p id="categoryModalDescription"></p>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer" style="display: none" id="category-active-btn"></div>
+            </div>
+        </div>
+    </div>
+
+</div>
+
+

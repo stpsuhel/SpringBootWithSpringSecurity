@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+<head th:replace="fragment/header :: application-head"></head>
+
+<body data-background-color="dark">
+<div class="wrapper">
+    <div th:replace="fragment/navbar :: application-top-header-user"></div>
+
+    <div class="container-fluid" style="min-height: inherit">
+        <div th:replace="${folder} + '/' + ${fragment} :: body"></div>
+    </div>
+
+    <!--Footer-->
+    <footer th:replace="fragment/footer :: application-footer"></footer>
+
+</div>
+<div th:replace="fragment/script :: application-script"></div>
+
+<!-- Common js file -->
+<script th:src="@{/page/common/ajaxCall.js}"></script>
+<script th:src="@{/page/common/errorMessage.js}"></script>
+<script th:src="@{/page/common/common.js}"></script>
+<script th:src="@{/page/common/table.js}"></script>
+<script th:src="@{/page/common/alert.js}"></script>
+
+<!-- Set or get Cookie from browser -->
+<script th:src="@{/page/common/alert.js}"></script>
+
+<script th:src="@{'/page/' + ${folder} + '/' + ${script} + '.js'}"></script>
+
+<script>
+    /**
+     * Show Active Page menu active
+     */
+    $('#' + activeIdForActivePage).addClass('active');
+</script>
+
+</body>
+</html>

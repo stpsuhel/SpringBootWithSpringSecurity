@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+<head th:replace="fragment/header :: application-head"></head>
+
+<body data-background-color="dark">
+<div class="wrapper">
+    <div th:replace="fragment/navbar :: application-top-header-admin"></div>
+    <div th:replace="fragment/sidebar :: application-side-bar"></div>
+
+    <div class="main-panel">
+        <div th:replace="'admin/' + ${folder} + '/' + ${fragment} :: body"></div>
+        <!--Footer-->
+        <footer th:replace="fragment/footer :: application-footer"></footer>
+    </div>
+
+</div>
+<div th:replace="fragment/script :: application-script"></div>
+
+<!-- Common js file -->
+<script th:src="@{/page/common/ajaxCall.js}"></script>
+<script th:src="@{/page/common/errorMessage.js}"></script>
+<script th:src="@{/page/common/common.js}"></script>
+<script th:src="@{/page/common/table.js}"></script>
+<script th:src="@{/page/common/alert.js}"></script>
+
+<script th:src="@{'/page/admin/' + ${script} + '.js'}"></script>
+
+</body>
+</html>

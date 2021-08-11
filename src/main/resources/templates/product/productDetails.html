@@ -1,0 +1,72 @@
+<div class="content" th:fragment="body">
+    <div class="card my-2">
+        <div class="row p-3">
+            <div class="col-md-5 d-flex justify-content-center pr-1">
+                <div class="row">
+                    <div class="col-12 d-flex justify-content-center">
+                        <img class="card-img-top" style="max-width: 450px;max-height: 500px;" id="mainImage"
+                             th:src="${product.mainImage.imageUrl}">
+                    </div>
+                    <div class="col-12">
+                        <div class="row d-flex justify-content-center">
+                            <div class="col-auto p-1">
+                                <img class="card-img-bottom border border-white"
+                                     style="width: 60px; height: 60px; cursor: pointer"
+                                     th:onclick="showImage(this.getAttribute('src'))"
+                                     th:src="${product.mainImage.imageUrl}">
+                            </div>
+                            <div class="col-auto p-1">
+                                <img class="card-img-bottom border border-white"
+                                     style="width: 60px; height: 60px; cursor: pointer"
+                                     th:onclick="showImage(this.getAttribute('src'))"
+                                     th:src="${product.mainImage.imageUrl}">
+                            </div>
+                            <div class="col-auto p-1">
+                                <img class="card-img-bottom border border-white"
+                                     style="width: 60px; height: 60px; cursor: pointer"
+                                     th:onclick="showImage(this.getAttribute('src'))"
+                                     th:src="${product.mainImage.imageUrl}">
+                            </div>
+                            <div class="col-auto p-1">
+                                <img class="card-img-bottom border border-white"
+                                     style="width: 60px; height: 60px; cursor: pointer"
+                                     th:onclick="showImage(this.getAttribute('src'))"
+                                     th:src="${product.mainImage.imageUrl}">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-7 pr-1">
+                <div class="card-body">
+                    <h5 class="card-title" th:text="${product.name}">Card title</h5>
+                    <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
+                    <!--                    <p class="card-text">*****</p>-->
+                    <div class="card-pricing py-2">
+                        <div class="card-price d-flex justify-content-start">
+                            <span class="price text-success">৳</span>
+                            <span class="price text-success"
+                                  th:text="${product.price - product.discount}"></span>
+                        </div>
+                        <div class="card-price d-flex justify-content-start">
+                            <span class="currency">৳</span>
+                            <del class="px-2">
+                                <span class="card-pricing-focus" th:text="${product.price}"></span>
+                            </del>
+                            <span class="card-pricing-focus text-white-50"
+                                  th:text="'(-' + ${product.discount} + ')'"></span></div>
+                    </div>
+                    <div class="card-default">
+                        <div th:each="color : ${#strings.arraySplit(product.color, ',')}">
+                            <span th:text="${color}"></span>
+                        </div>
+                    </div>
+                    <p class="card-text" th:text="${product.description}"></p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>
+
+

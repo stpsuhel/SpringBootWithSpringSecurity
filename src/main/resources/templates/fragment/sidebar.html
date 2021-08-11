@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:sec="http://www.thymeleaf.org/extras/spring-security" xmlns:th="http://www.thymeleaf.org">
+
+<div sec:authorize="isAuthenticated()" th:fragment="application-side-bar">
+    <!-- Sidebar -->
+    <div class="sidebar sidebar-style-2" data-background-color="dark2">
+        <div class="sidebar-wrapper scrollbar scrollbar-inner">
+            <div class="sidebar-content">
+                <div class="user">
+                    <div class="avatar-sm float-left mr-2">
+                        <img th:src="@{/img/profile.jpg}" alt="..." class="avatar-img rounded-circle">
+                    </div>
+                    <div class="info">
+                        <a th:href="@{#}">
+                            <span>
+                                Suhel
+                                <span class="user-level">Admin</span>
+                            </span>
+                        </a>
+                    </div>
+                </div>
+                <ul class="nav nav-primary">
+                    <li class="nav-item">
+                        <a th:href="@{#}" class="collapsed">
+                            <i class="fas fa-home"></i>
+                            <p>Dashboard</p>
+                        </a>
+                    </li>
+                    <li class="nav-section">
+                        <span class="sidebar-mini-icon">
+                            <i class="fa fa-ellipsis-h"></i>
+                        </span>
+                        <h4 class="text-section">Components</h4>
+                    </li>
+                    <li class="nav-item">
+                        <a data-toggle="collapse" th:href="@{#user}">
+                            <i class="fas fa-user"></i>
+                            <p>User Management</p>
+                            <span class="caret"></span>
+                        </a>
+                        <div class="collapse" id="user">
+                            <ul class="nav nav-collapse">
+                                <li>
+                                    <a th:href="@{/user}">
+                                        <span class="sub-item">User Information</span>
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
+                    </li>
+                    <li class="nav-item">
+                        <a data-toggle="collapse" th:href="@{#product}">
+                            <i class="fas fa-th-list"></i>
+                            <p>Product</p>
+                            <span class="caret"></span>
+                        </a>
+                        <div class="" id="product">
+                            <ul class="nav nav-collapse">
+                                <li>
+                                    <a th:href="@{/admin/category/page}">
+                                        <span class="sub-item">Category Information</span>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a th:href="@{/admin/product/page}">
+                                        <span class="sub-item">Product Information</span>
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <!-- End Sidebar -->
+</div>
+
+</html>

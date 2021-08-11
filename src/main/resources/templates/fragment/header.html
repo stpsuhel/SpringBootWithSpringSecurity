@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+<head th:fragment="application-head">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <title th:text="'Priyangona | ' + ${title}">Priyangona</title>
+    <meta content='width=device-width, initial-scale=1.0, shrink-to-fit=no' name='viewport' />
+    <link rel="icon" th:href="@{/img/icon.ico}" type="image/x-icon"/>
+
+    <!-- Fonts and icons -->
+    <script th:src="@{/js/plugin/webfont/webfont.min.js}"></script>
+    <script>
+    WebFont.load({
+            google: {"families":["Lato:300,400,700,900"]},
+            custom: {"families":["Flaticon", "Font Awesome 5 Solid", "Font Awesome 5 Regular", "Font Awesome 5 Brands", "simple-line-icons"], urls: ['/css/fonts.min.css']},
+            active: function() {
+                sessionStorage.fonts = true;
+            }
+        });
+    </script>
+
+    <!-- CSS Files -->
+    <link rel="stylesheet" th:href="@{/css/bootstrap.min.css}">
+    <link rel="stylesheet" th:href="@{/css/atlantis.min.css}">
+
+    <link rel="stylesheet" th:href="@{/js/plugin/datatables/dataTables.bootstrap4.min.css}">
+    <link rel="stylesheet" th:href="@{/js/plugin/datatables/responsive.bootstrap4.min.css}">
+
+    <!-- Splide Slider CSS -->
+<!--    <link rel="stylesheet" th:href="@{/js/plugin/splide/splide.min.css}">-->
+<!--    <link rel="stylesheet" th:href="@{/js/plugin/splide/splide-sea-green.min.css}">-->
+<!--    <link rel="stylesheet" th:href="@{/js/plugin/slick/slick.css}">-->
+<!--    <link rel="stylesheet" th:href="@{/js/plugin/slick/slick-theme.css}">-->
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" th:href="@{/page/common/common.css}">
+
+</head>
+
+</html>
